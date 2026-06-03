@@ -1,0 +1,182 @@
+/* Переменные для легкой настройки темы */
+:root {
+    --side-bg: #ffffff;
+    --main-bg: #f8fafc;
+    --accent: #2563eb;
+    --accent-soft: #eff6ff;
+    --text-dark: #0f172a;
+    --text-gray: #64748b;
+    --border: #e2e8f0;
+    --danger: #e11d48;
+    --danger-soft: #fff1f2;
+}
+
+/* Основной контейнер */
+.dashboard-wrapper {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    min-height: 100vh;
+    background-color: var(--main-bg);
+    font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Боковая панель (Sidebar) */
+.sidebar {
+    background: var(--side-bg);
+    border-right: 1px solid var(--border);
+    padding: 2rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+.sidebar-logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--accent);
+    margin-bottom: 2.5rem;
+    padding-left: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex-grow: 1;
+}
+
+.nav-item {
+    padding: 0.85rem 1rem;
+    border-radius: 12px;
+    color: var(--text-gray);
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-item:hover {
+    background-color: var(--accent-soft);
+    color: var(--accent);
+}
+
+.nav-item.active {
+    background-color: var(--accent);
+    color: #ffffff;
+}
+
+/* Кнопка выхода */
+.logout-btn {
+    background: var(--danger-soft);
+    color: var(--danger);
+    border: none;
+    padding: 0.85rem;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.logout-btn:hover {
+    filter: brightness(0.95);
+    transform: translateY(-1px);
+}
+
+/* Главная область контента */
+.main-content {
+    padding: 2.5rem 3.5rem;
+    max-width: 1200px;
+}
+
+.header-section {
+    margin-bottom: 3rem;
+}
+
+.welcome-text h1 {
+    font-size: 2rem;
+    color: var(--text-dark);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+}
+
+.welcome-text p {
+    color: var(--text-gray);
+    font-size: 1.1rem;
+}
+
+/* Сетка карточек */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.stat-card {
+    background: #ffffff;
+    padding: 1.75rem;
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.stat-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-gray);
+    margin-bottom: 0.75rem;
+    display: block;
+}
+
+.stat-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    word-break: break-all;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 99px;
+    background: #dcfce7;
+    color: #16a34a;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Адаптация под мобильные устройства */
+@media (max-width: 900px) {
+    .dashboard-wrapper {
+        grid-template-columns: 1fr;
+    }
+    
+    .sidebar {
+        display: none; /* Для полноценного приложения тут нужно бургер-меню */
+    }
+    
+    .main-content {
+        padding: 1.5rem;
+    }
+}
